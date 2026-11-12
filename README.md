@@ -38,13 +38,6 @@ Os termos ficam no array `TERMOS`, dentro do `index.html`. Adicione um novo obje
 | `detalhada` | não         | Explicação aprofundada                      |
 | `exemplo`   | não         | Exemplo prático                             |
 
-## Publicação no GitHub Pages
-
-1. Suba os arquivos para o repositório.
-2. Vá em **Settings → Pages**.
-3. Em **Source**, escolha a branch `main` e a pasta `/ (root)`.
-4. Salve. O site ficará disponível em `https://seu-usuario.github.io/nome-do-repositorio/`.
-
 ## Aviso
 
 O conteúdo tem caráter educativo e informativo. Não constitui recomendação de investimento.
