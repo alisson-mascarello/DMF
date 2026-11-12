@@ -125,19 +125,62 @@
 
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+  const STORAGE_KEY = "dmf-motion";
+  const root = document.documentElement;
+  const toggle = document.getElementById("motion-toggle");
+  const hero = document.querySelector(".hero");
+
+  const readSaved = () => {
+    try {
+      return localStorage.getItem(STORAGE_KEY) === "paused";
+    } catch {
+      return false;
+    }
+  };
+
+  let paused = readSaved();
+  let visible = false;
   let frameId = 0;
+  let elapsed = 0;
+  let lastFrame = 0;
 
   const animate = (ms) => {
-    draw(ms / 1000);
+    elapsed += (ms - lastFrame) / 1000;
+    lastFrame = ms;
+    draw(elapsed);
     frameId = requestAnimationFrame(animate);
   };
 
-  new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
-      if (!frameId) frameId = requestAnimationFrame(animate);
-    } else {
-      cancelAnimationFrame(frameId);
-      frameId = 0;
+  const stop = () => {
+    cancelAnimationFrame(frameId);
+    frameId = 0;
+  };
+
+  const sync = () => {
+    root.dataset.motion = paused ? "paused" : "running";
+    if (toggle) {
+      const label = paused ? "Retomar animações" : "Pausar animações";
+      toggle.setAttribute("aria-pressed", String(paused));
+      toggle.setAttribute("aria-label", label);
+      toggle.title = label;
     }
-  }).observe(document.querySelector(".hero"));
+    if (paused || !visible) return stop();
+    if (!frameId) {
+      lastFrame = performance.now();
+      frameId = requestAnimationFrame(animate);
+    }
+  };
+
+  toggle?.addEventListener("click", () => {
+    paused = !paused;
+    try {
+      localStorage.setItem(STORAGE_KEY, paused ? "paused" : "running");
+    } catch {}
+    sync();
+  });
+
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    sync();
+  }).observe(hero);
 })();

@@ -184,7 +184,8 @@ body {
   text-shadow: 0 1px 2px rgba(4, 15, 10, .6);
 }
 
-.theme-toggle {
+.theme-toggle,
+.motion-toggle {
   position: absolute;
   top: 18px;
   right: 18px;
@@ -203,11 +204,14 @@ body {
   transition: background .2s, transform .2s;
 }
 
-.theme-toggle:hover { background: rgba(255, 255, 255, .16); transform: rotate(12deg); }
+.theme-toggle:hover,
+.motion-toggle:hover { background: rgba(255, 255, 255, .16); transform: rotate(12deg); }
 
-.theme-toggle:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+.theme-toggle:focus-visible,
+.motion-toggle:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
 
-.theme-toggle svg {
+.theme-toggle svg,
+.motion-toggle svg {
   grid-area: 1 / 1;
   width: 20px;
   height: 20px;
@@ -222,6 +226,12 @@ body {
 .theme-toggle .icon-sun { opacity: 0; transform: rotate(-90deg) scale(.6); }
 :root[data-theme="dark"] .theme-toggle .icon-sun { opacity: 1; transform: none; }
 :root[data-theme="dark"] .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(.6); }
+
+.motion-toggle { right: 68px; }
+.motion-toggle .icon-play { opacity: 0; transform: scale(.6); }
+:root[data-motion="paused"] .motion-toggle .icon-play { opacity: 1; transform: none; }
+:root[data-motion="paused"] .motion-toggle .icon-pause { opacity: 0; transform: scale(.6); }
+:root[data-motion="paused"] .candle { animation-play-state: paused; }
 
 .container {
   max-width: 860px;
@@ -592,6 +602,7 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .motion-toggle { display: none; }
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation: none !important;
