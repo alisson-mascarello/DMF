@@ -35,9 +35,9 @@ DMF/
 ├── css/
 │   └── style.css     # estilos e tema claro/escuro
 ├── js/
-│   ├── termos.js     # dados: array TERMOS
+│   ├── terms.js      # dados: array TERMS
 │   ├── app.js        # busca, ordenação, índice e renderização
-│   ├── tema.js       # alternância entre tema claro e escuro
+│   ├── theme.js      # alternância entre tema claro e escuro
 │   └── hero.js       # animações do cabeçalho
 ├── README.md
 └── LICENSE
@@ -45,34 +45,34 @@ DMF/
 
 ## Como adicionar um termo
 
-Os termos ficam no array `TERMOS`, em `js/termos.js`. Adicione um novo objeto ao array (a ordem não importa, a página ordena de A a Z):
+Os termos ficam no array `TERMS`, em `js/terms.js`. Adicione um novo objeto ao array (a ordem não importa, a página ordena de A a Z):
 
 ```js
 {
-  termo: "CDI",
-  sigla: "Certificado de Depósito Interbancário",
+  term: "CDI",
+  acronym: "Certificado de Depósito Interbancário",
   en: "interbank deposit rate",
-  simples: "Taxa de referência do mercado de renda fixa, muito próxima da taxa Selic.",
-  detalhada: "Texto mais completo, com contexto, usos e cuidados.",
-  exemplo: "Exemplo prático em uma ou duas frases."
+  simple: "Taxa de referência do mercado de renda fixa, muito próxima da taxa Selic.",
+  detailed: "Texto mais completo, com contexto, usos e cuidados.",
+  example: "Exemplo prático em uma ou duas frases."
 },
 ```
 
 | Campo       | Obrigatório | Descrição                                               |
 |-------------|-------------|---------------------------------------------------------|
-| `termo`     | sim         | Nome do termo                                           |
-| `simples`   | sim         | Definição direta e objetiva (1 a 2 frases)              |
-| `sigla`     | não         | Significado por extenso, quando o termo for uma sigla   |
+| `term`      | sim         | Nome do termo                                           |
+| `simple`    | sim         | Definição direta e objetiva (1 a 2 frases)              |
+| `acronym`   | não         | Significado por extenso, quando o termo for uma sigla   |
 | `en`        | não         | Equivalente em inglês                                   |
-| `detalhada` | não         | Explicação aprofundada                                  |
-| `exemplo`   | não         | Exemplo prático                                         |
+| `detailed`  | não         | Explicação aprofundada                                  |
+| `example`   | não         | Exemplo prático                                         |
 
 Quando um texto citar uma sigla que ainda não tem verbete, vale criar o termo correspondente.
 
 ## Personalização
 
 - **Cores:** ficam como variáveis no início de `css/style.css`. Cada cor é definida uma única vez, no formato `light-dark(claro, escuro)`.
-- **Animações do cabeçalho:** as constantes `CANDLES` e `FATIAS`, no início de `js/hero.js`, controlam os candles e as fatias da pizza. O formato do gráfico de linha é ajustado em `criarGrafico`.
+- **Animações do cabeçalho:** as constantes `CANDLES` e `SLICES`, no início de `js/hero.js`, controlam os candles e as fatias da pizza. O formato do gráfico de linha é ajustado em `createChart`.
 
 ## Aviso
 
