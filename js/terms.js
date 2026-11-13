@@ -7,6 +7,13 @@ const TERMS = [
     example: "Ao comprar 100 ações de uma empresa a R$ 10 cada, você investe R$ 1.000 e passa a ter uma pequena fatia dela."
   },
   {
+    term: "Taxa de corretagem",
+    en: "brokerage fee",
+    simple: "Valor cobrado pela corretora para executar uma ordem de compra ou venda de um ativo.",
+    detailed: "Pode ser um valor fixo por ordem, um percentual sobre o valor negociado ou, em muitas corretoras, ser zerada para certos produtos, como ações à vista. Além dela, o investidor pode pagar outros custos, como emolumentos e taxa de liquidação da bolsa e impostos. Vale comparar corretoras, pois a corretagem reduz o retorno, principalmente em operações pequenas e frequentes.",
+    example: "Se a corretora cobra R$ 10 por ordem e você compra e vende uma ação, paga R$ 20 em corretagem, mesmo que a operação seja de apenas R$ 500."
+  },
+  {
     term: "Copom",
     acronym: "Comitê de Política Monetária",
     en: "Monetary Policy Committee",
@@ -51,6 +58,13 @@ const TERMS = [
     simple: "Facilidade de transformar um ativo em dinheiro sem perder valor.",
     detailed: "Ativos de alta liquidez podem ser vendidos rapidamente por um preço próximo ao de mercado. Ativos de baixa liquidez podem demorar a ser vendidos ou exigir desconto.",
     example: "Ações de grandes empresas são vendidas em segundos; um imóvel pode levar meses."
+  },
+  {
+    term: "Rentabilidade",
+    en: "return / yield",
+    simple: "Quanto um investimento rendeu em um período, geralmente expresso em porcentagem sobre o valor investido.",
+    detailed: "Pode ser bruta (antes de taxas e impostos) ou líquida (depois de descontá-los). Também pode ser nominal ou real, quando se desconta a inflação. Rentabilidade passada não garante resultados futuros, e deve ser comparada a um benchmark, como o CDI, para saber se o investimento compensou o risco.",
+    example: "Se você investiu R$ 1.000 e, após um ano, tem R$ 1.100, a rentabilidade bruta foi de 10%. Se a inflação no período foi de 4%, a rentabilidade real foi de cerca de 5,8%."
   },
   {
     term: "Renda fixa",
